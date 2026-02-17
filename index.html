@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <!-- أساسيات SEO -->
+    <title>ذهب وعملة | أسعار الذهب والعملات الآن في مصر لحظة بلحظة</title>
+    <meta name="description" content="تابع أسعار الذهب والعملات لحظة بلحظة مع دليل الاستثمار في مصر.">
+    <meta name="author" content="Tarek Hisham">
+    <link rel="canonical" href="https://yourdomain.com">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:title" content="ذهب وعملة | أسعار الذهب والعملات الآن">
+    <meta property="og:description" content="تابع أسعار الذهب والعملات لحظة بلحظة مع دليل الاستثمار في مصر.">
+    <meta property="og:image" content="https://yourdomain.com/og-image.png">
+    <meta property="og:url" content="https://yourdomain.com">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ذهب وعملة | أسعار الذهب والعملات الآن">
+    <meta name="twitter:description" content="تابع أسعار الذهب والعملات لحظة بلحظة مع دليل الاستثمار في مصر.">
+    <meta name="twitter:image" content="https://yourdomain.com/og-image.png">
+
+    <!-- Favicon & Touch Icons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon.png">
+
+    <!-- الخطوط وCSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- مكتبات JS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts" defer></script>
+
+    <!-- Structured Data (Schema.org) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "ذهب وعملة",
+      "url": "https://yourdomain.com",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://yourdomain.com/?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+
+    <!-- Alternate languages (لو عندك نسخة إنجليزي) -->
+    <link rel="alternate" hreflang="ar" href="https://yourdomain.com/">
+    <link rel="alternate" hreflang="en" href="https://yourdomain.com/en/">
+
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* إضافات CSS نهائية لضمان الجودة */
+        .glass {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .tab-btn.active {
+            background: #ca8a04;
+            color: #000;
+            font-weight: bold;
+        }
+
+        .hidden-section {
+            display: none !important;
+        }
+
+        .gold-grad {
+            background: linear-gradient(to bottom, #fde047, #ca8a04);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        #goldMultiChart,
+        #currencyChart {
+            touch-action: pan-y !important;
+        }
+
+        .english-num {
+            font-family: sans-serif;
+            direction: ltr;
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen flex flex-col bg-[#020617] text-[#f8fafc]">
+
+
+    <div class="w-full bg-yellow-600 text-black py-2 shadow-lg">
+        <div
+            class="max-w-7xl mx-auto px-4 flex flex-wrap justify-center md:justify-between items-center gap-4 text-[14px] md:text-sm font-bold">
+            <div class="flex items-center gap-2">
+                <span class="bg-black text-white px-2 py-0.5 rounded" id="goldTitle">السوق الآن</span>
+                <span id="live-full-date">جارِ تحميل التاريخ...</span>
+            </div>
+            <div class="flex items-center gap-2">
+                <span id="live-clock"
+                    class="bg-black text-white px-3 py-0.5 rounded-lg font-mono tracking-wider">00:00:00</span>
+            </div>
+        </div>
+    </div>
+
+    <header class="max-w-7xl mx-auto w-full px-4 py-8 flex flex-col md:flex-row justify-between items-center gap-6">
+        <div class="flex flex-col items-center gap-4">
+            <a href="index.html" class="nav-logo" id="logoName">💰 ذهب وعملة</a>
+            <div class="max-w-7xl mx-auto flex justify-between items-center px-4">
+                <span class="text-[10px] text-yellow-500 font-bold uppercase" id="subTitle">أسعار الذهب الآن في مصر لحظة
+                    بلحظة</span>
+            </div>
+
+        </div>
+        <div class="flex bg-gray-900/50 p-1 rounded-2xl border border-gray-800">
+
+            <button onclick="switchTab('gold')" id="btn-gold"
+                class="tab-btn active px-8 py-2 rounded-xl text-sm transition-all">
+                <span id="txt_gold">الذهب</span>
+            </button>
+
+            <button onclick="switchTab('currency')" id="btn-currency"
+                class="tab-btn px-8 py-2 rounded-xl text-sm transition-all">
+                <span id="txt_currency">العملات</span>
+            </button>
+
+        </div>
+
+        <!-- زرار تغيير اللغة -->
+        <button id="btn-lang" onclick="toggleLanguage()"
+            class="ml-3 px-4 py-2 bg-yellow-600 rounded-xl text-black font-bold">
+            English
+        </button>
+
+        <div class="flex items-center gap-2 bg-gray-900/80 px-3 py-1.5 rounded-full border border-gray-800 ml-2">
+            <div class="status-pulse"></div>
+            <span class="text-[10px] font-bold text-green-500 uppercase tracking-widest" data-ar="مباشر" data-en="Live"
+                id="liveStatus">مباشر</span>
+        </div>
+    </header>
+    <main class="max-w-7xl mx-auto w-full px-4 flex-grow">
+    <div class="max-w-7xl mx-auto px-4 my-4 text-center">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+            data-ad-slot="XXXXXXXXXX" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script> (adsbygoogle = window.adsbygoogle || []).push({}); </script>
+    </div>
+        <div id="section-gold" class="space-y-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="glass p-6 rounded-3xl border-b-4 border-yellow-500 text-center">
+                    <p class="text-[14px] text-yellow-500 font-bold mb-2" id="ounceUS">الاونصه العالميه</p>
+                    <div class="text-3xl font-black gold-grad" id="val-ounce-usd">--</div>
+                </div>
+                <div class="glass p-6 rounded-3xl border-b-4 border-orange-500 text-center">
+                    <p class="text-[14px] text-yellow-500 font-bold mb-2" id="ounceEGP">الأونصة المصريه </p>
+                    <div class="text-3xl font-black gold-grad" id="val-ounce-egp">--</div>
+                </div>
+                <div class="glass p-6 rounded-3xl border-b-4  border-blue-500 text-center">
+                    <p class="text-[14px] text-yellow-500 font-bold mb-2" id="silver">جرام الفضه</p>
+                    <div class="text-3xl font-black gold-grad" id="val-silver">--</div>
+                </div>
+                <div class="glass p-6 rounded-3xl border-b-4 border-green-500 text-center">
+                    <p class="text-[14px] text-yellow-500 font-bold mb-2" id="coieGold">الجنيه الذهب</p>
+                    <div class="text-3xl font-black gold-grad" id="val-coin">--</div>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+
+                <div class="glass p-6 rounded-3xl border-b-4  border-yellow-600 text-center">
+                    <p class="text-[14px] text-yellow-500 font-bold mb-2" id="carat24">عيار 24</p>
+                    <div class="text-3xl font-black gold-grad" id="val-g24">--</div>
+                </div>
+                <div
+                    class="glass p-6 rounded-3xl border-b-4 border-yellow-600 text-center bg-slate-900/40 relative scale-105 shadow-2xl">
+                    <div
+                        class="absolute top-1 rounded-3xl right-2 bg-yellow-600 text-black px-3 py-0.5 text-[9px] font-black">
+                        الأكثر طلباً</div>
+                    <p class="text-[14px] text-yellow-500 font-bold mb-2 uppercase" id="carat21"> - عيار21</p>
+                    <div class="text-4xl font-black text-white" id="val-g21">--</div>
+                </div>
+                <div class="glass p-6 rounded-3xl border-b-4 border-gray-500 text-center">
+                    <p class="text-[14px] text-yellow-500 font-bold mb-2" id="carat18">عيار 18</p>
+                    <div class="text-3xl font-black text-slate-400" id="val-g18">--</div>
+                </div>
+                <div class="glass p-6 rounded-3xl border-b-4 border-blue-500 text-center">
+                    <p class="text-[14px] text-yellow-500 font-bold mb-2" id="carat12">عيار 12</p>
+                    <div class="text-3xl font-black text-slate-400" id="val-g12">--</div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-6 gap-6">
+                <div class="lg:col-span-8 space-y-6">
+                    <div class="glass p-6 rounded-[2rem]">
+                        <h2 class="text-lg font-bold mb-4 text-yellow-500 text-blue-500" id="Summary">ملخص أبرز العيارات والوحدات حسب آخر تحديث</h2>
+                        <div class="overflow-hidden rounded-2xl border border-white/5">
+                            <table class="w-full text-right text-sm">
+                                <tbody class="divide-y divide-white/5 font-bold">
+                                    <td class="p-4 text-yellow-500  text-right" id="transaction">المعامله</td>
+                                    <td class="text-yellow-500" id="price">السعر</td>
+                                    <tr>
+                                        <td class="p-4 text-gray-400" id="ounceGlobal">الأونصة العالمية</td>
+                                        <td class="p-4 text-blue-400 english-num text-left" id="val-ounce-usd_g">--</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-4 text-gray-400" id="ounce_egp">الأونصة المصرية</td>
+                                        <td class="p-4 text-white" id="val-ounce-egp_g">--</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-4 text-gray-400" id="silver_t">جرام الفضه</td>
+                                        <td class="p-4 text-blue-400 english-num text-left" id="val-silver_g">--</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-4 text-gray-400" id="coin_t">الجنيه الذهب</td>
+                                        <td class="p-4 text-green-400 english-num text-left" id="val-coin_g">--</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-4 text-gray-400" id="g24_t">عيار 24</td>
+                                        <td class="p-4 text-yellow-500 english-num text-left" id="val-g24_g">--</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-4 text-gray-400" id="g21_t">عيار 21</td>
+                                        <td class="p-4 text-yellow-500 english-num text-left" id="val-g21_g">--</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-4 text-gray-400" id="g18_t">عيار 18</td>
+                                        <td class="p-4 text-yellow-500 english-num text-left" id="val-g18_g">--</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-4 text-gray-400" id="g12_t">عيار 12</td>
+                                        <td class="p-4 text-yellow-500 english-num text-left" id="val-g12_g">--</td>
+                                    </tr>
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="glass rounded-[2rem] p-6">
+                        <h3 class="text-sm font-bold mb-4 text-blue-500" id="devoling">تطور أسعار الذهب خلال الفتره الماضيه</h3>
+                        <div id="goldMultiChart"></div>
+                    </div>
+                </div>
+            </div>
+                <div class="lg:col-span-4 space-y-6">
+                    <div class="glass p-6 rounded-[2rem] border-t-4 border-yellow-600/50">
+                        <h3 class="font-bold mb-6 text-yellow-500 text-center" id="labor">⚖️ حاسبة الصاغة والمصنعية</h3>
+                        <div class="space-y-4">
+                            <input type="number" id="g-w" placeholder="الوزن بالجرام..."
+                                class="w-full bg-black/40 p-4 rounded-xl border border-gray-800 text-center font-bold">
+                            <div class="grid grid-cols-2 gap-3">
+                                <select id="g-k" class="bg-gray-800 p-4 rounded-xl border border-gray-700 text-sm">
+                                    <option value="21" id="g_k_21">عيار 21</option>
+                                    <option value="18" id="g_k_18">عيار 18</option>
+                                    <option value="24" id="g_k_24">عيار 24</option>
+                                </select>
+                                <input type="number" id="g-m" value="0"
+                                    class="bg-gray-800 p-4 rounded-xl border border-gray-700 text-yellow-500 text-center font-bold">
+                            </div>
+                            <div class="bg-yellow-600/10 p-5 rounded-3xl text-center border border-yellow-600/20">
+                                <h2 class="text-3xl font-black gold-grad" id="g-res">0.00</h2>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <section
+                        class="glass p-8 mb-12 border border-yellow-500/30 bg-gradient-to-br from-yellow-600/5 to-transparent">
+                        <h3 class="text-2xl font-bold text-yellow-500 mb-6 flex items-center gap-2" id="zakatTitle">
+                            <span>🌙</span> حاسبة زكاة الذهب
+                        </h3>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div class="space-y-4">
+                                <div>
+                                    <label class="block text-xs text-gray-500 mb-2" id=>وزن الذهب الكلي
+                                        (بالجرام)</label>
+                                    <input type="number" id="zakatWeight" placeholder="أدخل الوزن..."
+                                        class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:border-yellow-500 outline-none transition">
+                                </div>
+                                <div>
+                                    <label class="block text-xs text-gray-500 mb-2" id="zakatCaratLabel">عيار
+                                        الذهب</label>
+                                    <select id="zakatCarat"
+                                        class="w-full bg-[#0f172a] border border-white/10 rounded-xl px-4 py-3 outline-none">
+                                        <option value="24" id="zakatCarat24">عيار 24</option>
+                                        <option value="21" selected id="zakatCarat21">عيار 21</option>
+                                        <option value="18" id="zakatCarat18">عيار 18</option>
+                                    </select>
+                                </div>
+                                <p class="text-[10px] text-gray-500 italic" id="zakatNote">* تنويه: تجب الزكاة إذا بلغ
+                                    الذهب النصاب (ما
+                                    يعادل 85 جرام عيار 24) وحال عليه الحول.</p>
+                            </div>
+
+                            <div class="flex flex-col justify-center gap-4">
+                                <div id="zakatStatus" id="zakatStatus"
+                                    class="p-4 rounded-xl text-center text-sm font-bold bg-white/5 border border-white/5">
+                                    أدخل الوزن للحساب...
+                                </div>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div class="glass p-4 text-center">
+                                        <p class="text-[10px] text-gray-500 mb-1" id="zakatGramLabel">مقدار الزكاة
+                                            (جرام)</p>
+                                        <div id="zakatGram" class="text-xl font-bold text-yellow-500">0</div>
+                                    </div>
+                                    <div class="glass p-4 text-center">
+                                        <p class="text-[10px] text-gray-500 mb-1" id="zakatMoneyLabel"
+                                            class="zakatMoneyLabel_1">القيمة (ج.م)</p>
+                                        <div id="zakatMoney" class="text-xl font-bold text-green-500">0</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+        </div>
+
+        <div id="section-currency" class="hidden-section space-y-6">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                <div class="lg:col-span-4 glass p-6 rounded-[2rem]">
+                    <h3 class="font-bold mb-6 text-gray-500" id="currencyTitle">أسعار العملات مقابل الجنيه</h3>
+                    <div id="currency-list" class="space-y-3"></div>
+                </div>
+                <div class="lg:col-span-8 glass p-6 rounded-[2rem]">
+                    <div id="currencyChart" class="h-80"></div>
+                </div>
+            </div>
+            <section class="glass p-8 mb-12 border border-yellow-500/20">
+                <h3 class="text-2xl font-bold text-yellow-500 mb-6 flex items-center gap-2">
+                    <span id="currCalc">🧮حاسبة تحويل العملات</span> 
+                </h3>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-end">
+                    <div>
+                        <label class="block text-xs text-gray-500 mb-2" id="calcAmountLabel">المبلغ</label>
+                        <input type="number" id="calcAmount" value="1"
+                            class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:border-yellow-500 outline-none transition">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs text-gray-500 mb-2" id="fromCurrencyLabel">من</label>
+                        <select id="fromCurrency"
+                            class="w-full bg-[#0f172a] border border-white/10 rounded-xl px-4 py-3 outline-none">
+                            <option value="USD" id="fromCurrencyUSD">دولار أمريكي (USD)</option>
+                            <option value="SAR" id="fromCurrencySAR">ريال سعودي (SAR)</option>
+                            <option value="AED" id="fromCurrencyAED">درهم إماراتي (AED)</option>
+                            <option value="KWD" id="fromCurrencyKWD">دينار كويتي (KWD)</option>
+                            <option value="JOD" id="fromCurrencyJOD">دينار أردني (JOD)</option>
+                            <option value="QAR" id="fromCurrencyQAR">ريال قطري (QAR)</option>
+                            <option value="LYD">دينار ليبي (LYD)</option>
+                        </select>
+                    </div>
+
+                    <div class="bg-yellow-600/10 border border-yellow-600/20 rounded-xl p-4 text-center">
+                        <p class="text-[10px] text-yellow-500 mb-1" id="calcResultLabel">النتيجة بالجنيه المصري</p>
+                        <div id="calcResult" class="text-2xl font-bold text-white">--</div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <section class="mt-20 space-y-16 pb-20 border-t border-white/5 pt-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div class="space-y-6">
+                    <h3 class="text-2xl font-black text-yellow-500" id="whyGoldPriceChangeTitle">لماذا يتغيّر سعر الذهب؟
+                    </h3>
+                    <p class="text-sm text-gray-400 leading-relaxed">العوامل التي تتحكم في أسعار الذهب محلياً وعالمياً
+                        تعتمد بشكل أساسي على سعر الأونصة في البورصة العالمية، وسعر صرف الدولار في البنوك المصرية，
+                        بالإضافة إلى قوى العرض والطلب في سوق الصاغة.</p>
+                    <div class="bg-yellow-600/5 p-6 rounded-2xl border border-yellow-600/10">
+                        <h4 class="font-bold text-white mb-2">أهم المؤثرات:</h4>
+                        <ul class="text-xs text-gray-500 space-y-2">
+                            <li>• قرارات الفيدرالي الأمريكي بشأن الفائدة.</li>
+                            <li>• استقرار الجنيه المصري مقابل العملات الأجنبية.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="space-y-6 text-right">
+                    <h3 class="text-2xl font-black text-white">الأسئلة الشائعة</h3>
+                    <div class="space-y-4">
+                        <details class="glass p-4 rounded-xl cursor-pointer group">
+                            <summary class="font-bold text-yellow-500 flex justify-between">كم سعر الذهب في مصر الآن؟
+                                <span>+</span>
+                            </summary>
+                            <p class="mt-4 text-xs text-gray-500">نرد على الاستفسار: السعر يتحدث لحظياً بناءً على آخر
+                                صفقات تمت في سوق الذهب المصري والبورصات العالمية.</p>
+                        </details>
+                        <details class="glass p-4 rounded-xl cursor-pointer group">
+                            <summary class="font-bold text-yellow-500 flex justify-between">كيف يتم حساب المصنعية؟
+                                <span>+</span>
+                            </summary>
+                            <p class="mt-4 text-xs text-gray-500">المصنعية تختلف من تاجر لآخر، ولكن المتوسط يتراوح بين
+                                80 إلى 200 جنيه للجرام حسب نوع المشغولات.</p>
+                        </details>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-black/40 border-t border-gray-900 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-12 text-right">
+            <div>
+                <h4 class="font-black text-yellow-500 mb-6">من نحن</h4>
+                <p class="text-xs text-gray-500 leading-loose">موقع أسعار الذهب اليوم في مصر هو وجهتك لمعرفة آخر
+                    التحديثات اللحظية. نساعدك في حساب قيمة دولار الصاغة ومعرفة أسعار العملات في البنوك وتحديثات قناة
+                    التليجرام.</p>
+            </div>
+            <div>
+                <h4 class="font-bold text-blue-400 mb-6">روابط سريعة</h4>
+                <div class="flex flex-col gap-4 font-black text-yellow-500 mb-6">
+                    <a href="index.html">الرئيسية</a>
+                    <a href="blog.html">المدونة</a>
+                    <a href="privacy.html">سياسة الخصوصية</a>
+                    <a href="terms.html">شروط الاستخدام</a>
+                    <a href="contact.html">اتصل بنا</a>
+                </div>
+            </div>
+            <div>
+                <h4 class="font-bold text-white mb-6">تابعنا في الدول العربية</h4>
+                <div class="flex flex-wrap gap-2 text-[10px] text-gray-400">
+                    <span>السعودية</span> | <span>الإمارات</span> | <span>الكويت</span> | <span>قطر</span> |
+                    <span>تركيا</span> | <span>العراق</span>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-12 pt-8 text-[10px] text-gray-700 border-t border-white/5">جميع الحقوق محفوظة © 2026
+            منصة ذهب وعملة مصر</div>
+    </footer>
+    <div id="cookie-notice"
+        class="fixed bottom-4 right-4 left-4 glass p-4 z-[200] flex justify-between items-center hidden">
+        <p class="text-[10px] text-gray-400">نحن نستخدم ملفات تعريف الارتباط لضمان أفضل تجربة لك. <a href="privacy.html"
+                class="underline text-yellow-500">اقرأ المزيد</a></p>
+        <button onclick="acceptCookies()"
+            class="bg-yellow-600 text-black px-4 py-1 rounded-lg text-xs font-bold">موافق</button>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

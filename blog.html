@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="أسعار الذهب والعمله لحظة بلحظة ودليل الاستثمار في مصر">
+    <meta name="keywords" content="ذهب، سعر الذهب،سعر الذهب اليوم ،سعر الذهب اليوم في مصر،دولار الصاغة، عيار 21، عيار 18، عيار 24، سبائك، استثمار">
+    <title>ذهب وعملة | أسعار الذهب والعملات الآن في مصر لحظة بلحظة</title>
+    <link rel="icon" type="image/jpeg" href="favicon.png">
+    <title>مدونة الذهب | أخبار وتقارير الصاغة</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="min-h-screen">
+
+    <nav class="blog-nav">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center px-4 gap-4">
+            <a href="index.html" class="nav-logo">💰 ذهب وعملة</a>
+            <input type="text" id="blogSearch" placeholder="ابحث في المقالات..." class="search-input">
+        </div>
+    </nav>
+
+    <header class="max-w-7xl mx-auto px-4 py-16 text-right">
+        <h1 class="text-5xl font-black mb-6 gold-grad">المدونة الاقتصادية</h1>
+        <p class="text-lg text-gray-400 border-r-4 border-yellow-600 pr-4 max-w-2xl">
+            تحليلات حصرية وأدلة شاملة لفهم سوق الذهب والعملات في مصر. معلومات موثوقة لقرارات استثمارية ذكية.
+        </p>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 pb-20">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20" id="articlesGrid">
+            
+            <!-- مقال 1 -->
+            <article class="glass blog-card">
+                <div class="card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1584263347416-85a696b4eda7?w=600&h=400&fit=crop" alt="توقعات الذهب" loading="lazy">
+                    <span class="badge">تقارير</span>
+                </div>
+                <div class="p-6">
+                    <h2 class="text-xl font-bold mb-3">توقعات أسعار الذهب 2026</h2>
+                    <p class="text-gray-500 text-sm mb-4">تحليل شامل لحركة المعدن الأصفر عالمياً ومحلياً. كل ما تحتاج معرفته عن العوامل المؤثرة والتوقعات المستقبلية...</p>
+                    <button onclick="openArticle(1)" class="read-more">اقرأ المقال ←</button>
+                </div>
+            </article>
+
+            <!-- مقال 2 -->
+            <article class="glass blog-card">
+                <div class="card-img-wrapper">
+                    <img src="download.webp" alt="السبائك الذهب" loading="lazy">
+                    <span class="badge">استثمار</span>
+                </div>
+                <div class="p-6">
+                    <h2 class="text-xl font-bold mb-3">السبائك أم الجنيه الذهب؟</h2>
+                    <p class="text-gray-500 text-sm mb-4">أيهما أفضل لحفظ قيمة مدخراتك وتقليل المصنعية؟ دليل شامل للاختيار الأمثل حسب أهدافك المالية...</p>
+                    <button onclick="openArticle(2)" class="read-more">اقرأ المقال ←</button>
+                </div>
+            </article>
+
+            <!-- مقال 3 -->
+            <article class="glass blog-card">
+                <div class="card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1621981386829-9b458a2cddde?w=600&h=400&fit=crop" alt="كشف الذهب المغشوش" loading="lazy">
+                    <span class="badge">دليل</span>
+                </div>
+                <div class="p-6">
+                    <h2 class="text-xl font-bold mb-3">كشف الذهب المغشوش</h2>
+                    <p class="text-gray-500 text-sm mb-4">طرق احترافية ومجربة للتأكد من الدمغة والأختام الرسمية. احمِ نفسك من عمليات الاحتيال في سوق الصاغة...</p>
+                    <button onclick="openArticle(3)" class="read-more">اقرأ المقال ←</button>
+                </div>
+            </article>
+
+            <!-- مقال 4 - المميز -->
+            <article class="glass blog-card border-2 border-yellow-500/50">
+                <div class="card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=600&h=400&fit=crop" alt="دولار الصاغة" loading="lazy">
+                    <span class="badge bg-yellow-500 text-black">هام جداً</span>
+                </div>
+                <div class="p-6">
+                    <h2 class="text-xl font-bold mb-3 text-yellow-500">ما هو دولار الصاغة؟</h2>
+                    <p class="text-gray-500 text-sm mb-4">تعرف على السر الذي يحدد سعر الذهب في مصر بعيداً عن سعر البنك. معادلات الحساب والعوامل المؤثرة...</p>
+                    <button onclick="openArticle(4)" class="read-more text-yellow-500">اقرأ المقال ←</button>
+                </div>
+            </article>
+
+            <!-- مقال 5 -->
+            <article class="glass blog-card">
+                <div class="card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1614027164847-1b28cfe1df60?w=600&h=400&fit=crop" alt="زكاة الذهب" loading="lazy">
+                    <span class="badge bg-green-600">شرعي</span>
+                </div>
+                <div class="p-6">
+                    <h2 class="text-xl font-bold mb-3">دليل زكاة الذهب الشامل</h2>
+                    <p class="text-gray-500 text-sm mb-4">الأحكام والشروط وطرق الحساب. كل ما تحتاج معرفته عن زكاة الذهب بأسلوب مبسط مع أمثلة عملية...</p>
+                    <button onclick="openArticle(5)" class="read-more">اقرأ المقال ←</button>
+                </div>
+            </article>
+
+            <!-- مقال 6 -->
+            <article class="glass blog-card">
+                <div class="card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=600&h=400&fit=crop" alt="الذهب والبورصة" loading="lazy">
+                    <span class="badge bg-blue-600">مقارنة</span>
+                </div>
+                <div class="p-6">
+                    <h2 class="text-xl font-bold mb-3">الذهب vs البورصة</h2>
+                    <p class="text-gray-500 text-sm mb-4">مقارنة شاملة بين الاستثمار في الذهب والأسهم. أيهما أنسب لك؟ المميزات والعيوب وجدول مقارنة تفصيلي...</p>
+                    <button onclick="openArticle(6)" class="read-more">اقرأ المقال ←</button>
+                </div>
+            </article>
+
+            <!-- مقال 7 -->
+            <article class="glass blog-card">
+                <div class="card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1567427017947-545c5f8d16ad?w=600&h=400&fit=crop" alt="تاريخ الذهب في مصر" loading="lazy">
+                    <span class="badge bg-purple-600">تاريخ</span>
+                </div>
+                <div class="p-6">
+                    <h2 class="text-xl font-bold mb-3">تاريخ الذهب في مصر</h2>
+                    <p class="text-gray-500 text-sm mb-4">رحلة عبر آلاف السنين من عصر الفراعنة إلى اليوم. قصة حب مصر والذهب عبر العصور المختلفة...</p>
+                    <button onclick="openArticle(7)" class="read-more">اقرأ المقال ←</button>
+                </div>
+            </article>
+
+            <!-- مقال 8 -->
+            <article class="glass blog-card">
+                <div class="card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1543699565-003b8adda5fc?w=600&h=400&fit=crop" alt="أخطاء شراء الذهب" loading="lazy">
+                    <span class="badge bg-red-600">تحذيرات</span>
+                </div>
+                <div class="p-6">
+                    <h2 class="text-xl font-bold mb-3">أخطاء شائعة عند شراء الذهب</h2>
+                    <p class="text-gray-500 text-sm mb-4">تجنب الوقوع في هذه الأخطاء التي قد تكلفك الكثير. دليل عملي لشراء ذكي ومربح مع نصائح الخبراء...</p>
+                    <button onclick="openArticle(8)" class="read-more">اقرأ المقال ←</button>
+                </div>
+            </article>
+
+            <!-- مقال 9 -->
+            <article class="glass blog-card">
+                <div class="card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=600&h=400&fit=crop" alt="الذهب الأبيض والأصفر" loading="lazy">
+                    <span class="badge bg-gray-400 text-black">مجوهرات</span>
+                </div>
+                <div class="p-6">
+                    <h2 class="text-xl font-bold mb-3">الذهب الأبيض vs الأصفر</h2>
+                    <p class="text-gray-500 text-sm mb-4">كل الفروقات التي تحتاج معرفتها قبل الشراء. جدول مقارنة شامل ونصائح لاختيار الأنسب لك...</p>
+                    <button onclick="openArticle(9)" class="read-more">اقرأ المقال ←</button>
+                </div>
+            </article>
+
+            <!-- مقال 10 -->
+            <article class="glass blog-card border-2 border-blue-500/50">
+                <div class="card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=600&h=400&fit=crop" alt="الأحداث العالمية والذهب" loading="lazy">
+                    <span class="badge bg-blue-500">تحليل</span>
+                </div>
+                <div class="p-6">
+                    <h2 class="text-xl font-bold mb-3 text-blue-400">تأثير الأحداث العالمية</h2>
+                    <p class="text-gray-500 text-sm mb-4">كيف تؤثر الحروب والتضخم وأسعار الفائدة على سعر الذهب؟ فهم العلاقة بين الأخبار والأسعار...</p>
+                    <button onclick="openArticle(10)" class="read-more text-blue-400">اقرأ المقال ←</button>
+                </div>
+            </article>
+
+        </div>
+
+        <!-- قسم تحميل المزيد -->
+        <div class="text-center py-12">
+            <div class="inline-block glass px-8 py-4 rounded-2xl">
+                <p class="text-gray-400 mb-2">✨ المزيد من المقالات قريباً</p>
+                <p class="text-xs text-gray-600">تابعنا للحصول على أحدث التحليلات والأخبار</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal المقال -->
+    <div id="articleModal" class="hidden fixed inset-0 bg-black/95 backdrop-blur-md z-[100] flex items-center justify-center p-4 overflow-y-auto">
+        <div class="glass max-w-4xl w-full max-h-[90vh] overflow-y-auto p-8 md:p-12 relative border border-yellow-500/20 shadow-2xl my-8">
+            <button onclick="closeArticle()" class="sticky top-4 float-left text-white text-4xl font-bold hover:text-yellow-500 transition z-10 bg-black/50 rounded-full w-12 h-12 flex items-center justify-center">&times;</button>
+            <h2 id="modalTitle" class="text-3xl md:text-4xl font-black text-yellow-500 mb-8 border-r-4 border-yellow-500 pr-6 clear-both pt-4"></h2>
+            <div id="modalContent" class="text-gray-300 leading-relaxed"></div>
+            <div class="mt-12 pt-8 border-t border-white/10 text-center">
+                <button onclick="closeArticle()" class="bg-gradient-to-r from-yellow-600 to-yellow-500 text-black px-12 py-3 rounded-xl font-bold hover:shadow-lg hover:scale-105 transition-all">إغلاق</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-black/40 border-t border-gray-900 pt-16 pb-8 mt-20">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-12 text-right">
+            <div>
+                <h4 class="font-black text-yellow-500 mb-6">من نحن</h4>
+                <p class="text-xs text-gray-500 leading-loose">موقع أسعار الذهب اليوم في مصر هو وجهتك لمعرفة آخر التحديثات اللحظية. نساعدك في حساب قيمة دولار الصاغة ومعرفة أسعار العملات في البنوك وتحديثات قناة التليجرام.</p>
+            </div>
+            <div>
+                <h4 class="font-bold text-blue-400 mb-6">روابط سريعة</h4>
+                <div class="flex flex-col gap-4 text-sm">
+                    <a href="index.html" class="hover:text-yellow-500 transition">الرئيسية</a>
+                    <a href="blog.html" class="text-yellow-500">المدونة</a>
+                    <a href="privacy.html" class="hover:text-yellow-500 transition">سياسة الخصوصية</a>
+                    <a href="terms.html" class="hover:text-yellow-500 transition">شروط الاستخدام</a>
+                    <a href="contact.html" class="hover:text-yellow-500 transition">اتصل بنا</a>
+                </div>
+            </div>
+            <div>
+                <h4 class="font-bold text-white mb-6">تابعنا في الدول العربية</h4>
+                <div class="flex flex-wrap gap-2 text-[10px] text-gray-400">
+                    <span>السعودية</span> | <span>الإمارات</span> | <span>الكويت</span> | <span>قطر</span> | <span>تركيا</span> | <span>العراق</span>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-12 pt-8 text-[10px] text-gray-700 border-t border-white/5">
+            جميع الحقوق محفوظة © 2026 منصة ذهب وعملة مصر
+        </div>
+    </footer>
+
+    <!-- إشعار الكوكيز -->
+    <div id="cookie-notice" class="fixed bottom-4 right-4 left-4 glass p-4 z-[200] flex flex-col md:flex-row justify-between items-center gap-4 hidden">
+        <p class="text-xs text-gray-400">نحن نستخدم ملفات تعريف الارتباط لضمان أفضل تجربة لك. <a href="privacy.html" class="underline text-yellow-500 hover:text-yellow-400">اقرأ المزيد</a></p>
+        <button onclick="acceptCookies()" class="bg-yellow-600 text-black px-6 py-2 rounded-lg text-xs font-bold hover:bg-yellow-500 transition whitespace-nowrap">موافق</button>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
