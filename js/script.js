@@ -1,5 +1,5 @@
 // مفتاح API الخاص بك
-const API_KEY = '1a520e812453b5af508151047e353115';
+const API_KEY = '';
 
 let state = { 
     rates: {}, 
@@ -1399,7 +1399,7 @@ function setupZakatCalculator() {
 
 const translations = {
     ar: {
-        btn: "English",
+        btn_lang: "English",
         Currency: "العملات",
         subTitle: "أسعار الذهب الآن في مصر لحظة بلحظة",
         gold: "الذهب",
@@ -1416,7 +1416,7 @@ const translations = {
         ounceEGP: "الاونصه المصرية",
         coieGold: "الجنيه الذهب",
         silver: "سعر الفضة",
-        labor: "المصنعية",
+        labor: "⚖️ حاسبة الصاغة والمصنعية",
         weightG: "الوزن بالجرام",
         g_k_21: "عيار 21",
         g_k_18: "عيار 18",
@@ -1459,7 +1459,7 @@ const translations = {
 
     },
     en: {
-        btn: "العربية",
+        btn_lang: "العربية",
         Currency: "Currency",
         gold: "Gold",
         subTitle: "Live Prices in Egypt",
@@ -1476,7 +1476,7 @@ const translations = {
         ounceEGP: "Ounce EGP Price",
         coieGold: "Gold Coin Price",
         silver: "Silver Price",
-        labor: "Manufacturing Cost",
+        labor: "Goldsmith and labor calculator",
         weightG: "Weight in Grams",
         g_k_21: "21K Gold",
         g_k_18: "18K Gold",
@@ -1531,7 +1531,7 @@ function toggleLanguage() {
 
     // عناصر الموقع اللي هتتغير نصوصها
     const elements = [
-        'btn-lang','gold','Currency', 'txt_gold', 'currencyTitle','currCalc','txt_currency',
+        'btn_lang','gold','Currency', 'txt_gold', 'currencyTitle','currCalc','txt_currency',
         'carat24','carat21','carat18','carat12','ounceUS','ounceEGP','coieGold','silver',
         'logoName','subTitle','goldTitle','currTitle','labor','liveStatus',
         'ounceGlobal','ounce_egp','silver_t','coin_t','g24_t','g21_t','g18_t','g12_t',
