@@ -24,9 +24,9 @@
     <meta name="twitter:image" content="https://yourdomain.com/og-image.png">
 
     <!-- Favicon & Touch Icons -->
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="favicon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="logo.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="logo.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="logo.png">
 
     <!-- الخطوط وCSS -->
     <link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -134,7 +134,7 @@
         </div>
 
         <!-- زرار تغيير اللغة -->
-        <button id="btn-lang" onclick="toggleLanguage()"
+        <button id="btn_lang" onclick="toggleLanguage()"
             class="ml-3 px-4 py-2 bg-yellow-600 rounded-xl text-black font-bold">
             English
         </button>
@@ -236,12 +236,16 @@
                             </table>
                         </div>
                     </div>
+                    
                     <div class="glass rounded-[2rem] p-6">
                         <h3 class="text-sm font-bold mb-4 text-blue-500" id="devoling">تطور أسعار الذهب خلال الفتره الماضيه</h3>
                         <div id="goldMultiChart"></div>
                     </div>
                 </div>
             </div>
+            <section>
+
+            </section>
                 <div class="lg:col-span-4 space-y-6">
                     <div class="glass p-6 rounded-[2rem] border-t-4 border-yellow-600/50">
                         <h3 class="font-bold mb-6 text-yellow-500 text-center" id="labor">⚖️ حاسبة الصاغة والمصنعية</h3>
@@ -254,7 +258,7 @@
                                     <option value="18" id="g_k_18">عيار 18</option>
                                     <option value="24" id="g_k_24">عيار 24</option>
                                 </select>
-                                <input type="number" id="g-m" value="0"
+                                <input type="number" placeholder="سعر المصنعيه" id="g-m" value=""
                                     class="bg-gray-800 p-4 rounded-xl border border-gray-700 text-yellow-500 text-center font-bold">
                             </div>
                             <div class="bg-yellow-600/10 p-5 rounded-3xl text-center border border-yellow-600/20">
