@@ -1,5 +1,5 @@
 // مفتاح API الخاص بك
-const API_KEY = '';
+const API_KEY = '1a520e812453b5af508151047e353115';
 
 let state = { 
     rates: {}, 
@@ -1566,6 +1566,7 @@ function toggleLanguage() {
 setupZakatCalculator();
 setupCurrencyCalculator();
 init();
+
 
 
 
